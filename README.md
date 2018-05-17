@@ -8,54 +8,24 @@ For detailed information of this work you are welcome to read my [PAPER](https:/
 This model was trained and tested on a collective dataset, 
 consisting of the english [IEMOCAP](https://sail.usc.edu/iemocap/)
 and the french [RECOLA](http://diuf.unifr.ch/diva/recola/index.html) datasets.
-
-### Hyperparameters
-Parameter| Value  
-:--|--:
-Activation Functions | Relu
-Loss Function | Softmax Cross Entropy
-Optimizer | ADAM
-Init. Learning Rate | 0.001
-Mini-batch size | 50
-Stride | 3
-Dropout | 0.5
-Epoches | 50
-
-### achieved accuracy
-Englisch testset
-
-|Class | Mono-lingual | Multi-lingual | Cross-language
-|:--|:--|:--|:--|
-|Sadness | 0.000 | 0.015| 0.015
-|Anger |0.019 |0.014| 0.014
-|Pleasure| 0.043 |0.010| 0.120
-|Joy| 0.942| 0.985| 0.864
-|MICRO| 0.421| 0.432| 0.405
-
-French testset
-
-Class | Mono-lingual | Multi-lingual | Cross-language
-:--|:--|:--|:--|
-Sadness| 0.070 |0.000 |0.230
-Anger| 0.200 |0.200 |0.200
-|Pleasure| 0.350 |0.035 |0.357
-Joy| 0.754| 0.912 |0.403
-MICRO| 0.533 |0.524 |0.359
+We use [openSMILE] (https://mediatum.ub.tum.de/doc/1082431/1082431.pdf) to extract features.
+The config files and the resulting features can be found in the 'openSMILE' folder.
+The Python script in the 'Preprocessing' folder transfers this extracted information into the right format to feed our neural network.
 
 ## Getting Started
-You can view the notebook here on github. 
+You can view the notebook [here] (https://github.com/StrohmFn/Language-independent-Emotion-Recognition-from-Speech/blob/master/CNN%20SpeechRecognition.ipynb) on github. 
 ### Run the notebook
 #### Prerequisites
 - Python 3
 - Tensorflow
 - Jupyter
 
-#### starting the notebook
+#### Starting the notebook
 Simply open a new terminal in the directory and type:
 ```bash
 > jupyter notebook
 ```
-#### setup model
+#### Setup model
 make sure you run all codeblocks from top to bottom to setup the network
 
 ### Running the tests
