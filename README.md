@@ -2,7 +2,7 @@
 
 Mono- and cross-lingual emotion classification in recorded speech through a convolutional neural network.
 
-For detailed information of this work please read the paper which can be found in this repository.
+For detailed information of this work please read the [PAPER](https://github.com/StrohmFn/Language-independent-Emotion-Recognition-from-Speech/blob/master/language-independent-emotion.pdf) which can be found in this repository.
 
 ### Data
 This model was trained and tested on a collective dataset, 
