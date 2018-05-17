@@ -1,23 +1,12 @@
 
 # coding: utf-8
-
 # # Convolutional Neural Network for Speech Recognition
-
-# # Strays Wonderland
-
-# In[ ]:
-
-
 import tensorflow as tf
 import numpy as np
 import random
 import math
 
 print(tf.__version__)
-
-
-# In[ ]:
-
 
 # path to the data; CHANGE THIS TO YOUR INDIV. PATH
 path = 'Preprocessing'
@@ -54,10 +43,6 @@ labels_test_FR2 = np.load(path + '/RECOLA/RECOL_label_valid_class_2.npy')
 samples_test_FR3 = np.load(path + '/RECOLA/RECOL_feature_valid_class_3.npy')
 labels_test_FR3 = np.load(path + '/RECOLA/RECOL_label_valid_class_3.npy')
 
-
-# In[ ]:
-
-
 # hyperparameters
 TRAIN_ITERS = 500000
 BATCH_SIZE = 50
@@ -93,10 +78,6 @@ y = tf.placeholder(tf.float32, shape=(None, n_classes), name="Prediction")
 
 # gateway for dropout
 keep_prob =  tf.placeholder(tf.float32, name="Dropout")
-
-
-# In[ ]:
-
 
 positions_ENG = np.arange(n_samples_ENG)
 positions_FR = np.arange(n_samples_FR)
@@ -190,10 +171,6 @@ def get_test_batch_fr(samples, labels):
         batch_samples.append(sample_frames)
     return batch_samples
 
-
-# In[ ]:
-
-
 # function for a convolution layer
 def conv2d(x, W, b, name="Convolution"): 
     with tf.name_scope(name):
@@ -217,10 +194,6 @@ def conv_net(x, weights, biases):
     out = tf.add(tf.matmul(act1, weights['out']), biases['out'])
     return out #return the classification
 
-
-# In[ ]:
-
-
 # create weights
 weights = {
     'wc1': tf.Variable(tf.random_normal([10,n_features,1,50])),
@@ -233,10 +206,6 @@ biases = {
     'out': tf.Variable(tf.random_normal([n_classes]))
 }
 
-
-# In[ ]:
-
-
 # construct model
 pred = conv_net(x, weights, biases)
 
@@ -244,17 +213,9 @@ pred = conv_net(x, weights, biases)
 cost = tf.reduce_mean(tf.nn.softmax_cross_entropy_with_logits_v2(logits = pred, labels = y))
 optimizer = tf.train.AdamOptimizer(learning_rate = LEARNING_RATE).minimize(cost)
 
-
-# In[ ]:
-
-
 # evaluate model with tf.equal(predictedValue, testData)
 correct_pred = tf.equal(tf.argmax(pred, 1), tf.argmax(y, 1))
 accuracy = tf.reduce_mean(tf.cast(correct_pred, tf.float32))
-
-
-# In[ ]:
-
 
 # launch the graph
 sess = tf.Session()
@@ -273,10 +234,6 @@ while step * BATCH_SIZE < TRAIN_ITERS:
         print("Iter " + str(step*BATCH_SIZE) + ", Minibatch Loss= " + "{:.6f}".format(loss) + ", Training Accuracy= " + "{:.5f}".format(acc))
     step += 1
 print("Optimization Finished! Testing Model...")
-
-
-# In[ ]:
-
 
 # Evaluate model with french test data
 test_x = get_test_batch_fr(samples_test_FR, labels_test_FR)
@@ -335,4 +292,3 @@ print("English Test Accuracy Class 3: " + str(accuracy_eng3))
 
 accuracy_eng_avg = (accuracy_eng0 + accuracy_eng1 + accuracy_eng2 + accuracy_eng3)/4
 print("Avg. English Test Accuracy: " + str(accuracy_eng_avg))
-
