@@ -8,7 +8,7 @@ For detailed information of this work you are welcome to read my [PAPER](https:/
 This model was trained and tested on a collective dataset, 
 consisting of the english [IEMOCAP](https://sail.usc.edu/iemocap/)
 and the french [RECOLA](http://diuf.unifr.ch/diva/recola/index.html) datasets.
-We use [openSMILE](https://mediatum.ub.tum.de/doc/1082431/1082431.pdf) to extract features.
+We use [openSMILE](https://mediatum.ub.tum.de/doc/1082431/1082431.pdf) to extract different features from the speech signals.
 The used config files and the resulting features can be found in the 'openSMILE' folder.
 The Python script in the 'Preprocessing' folder transfers this extracted information into the right format to feed our neural network.
 
