@@ -1,8 +1,75 @@
-# Language-independent Emotion Recognition from Speech
+# Neural Network for Emotion Recognition from Speech
 
-Goal of this project ist to develop a network, that identifies the in voice expressed
-emotion in given speech independent of the language that is spoken. We are especially
-interested in the effects of training a network either solely based on one language and
-train both languages individually or having cross-language training and thus not dif-
-ferentiating the input language in our corpus. Therefore, our baseline will differentiate
-between these two methods for all three research questions.
+Mono- and cross-lingual emotion classification in recorded speech through a convolutional neural network.
+
+For detailed information of this work please read the paper which can be found in this repository.
+
+### Data
+This model was trained and tested on a collective dataset, 
+consisting of the english [IEMOCAP](https://sail.usc.edu/iemocap/)
+and the french [RECOLA](http://diuf.unifr.ch/diva/recola/index.html) datasets.
+
+### Hyperparameters
+Parameter| Value  
+:--|--:
+Activation Functions | Relu
+Loss Function | Softmax Cross Entropy
+Optimizer | ADAM
+Init. Learning Rate | 0.001
+Mini-batch size | 50
+Stride | 3
+Dropout | 0.5
+Epoches | 50
+
+### achieved accuracy
+Englisch testset
+
+|Class | Mono-lingual | Multi-lingual | Cross-language
+|:--|:--|:--|:--|
+|Sadness | 0.000 | 0.015| 0.015
+|Anger |0.019 |0.014| 0.014
+|Pleasure| 0.043 |0.010| 0.120
+|Joy| 0.942| 0.985| 0.864
+|MICRO| 0.421| 0.432| 0.405
+
+French testset
+
+Class | Mono-lingual | Multi-lingual | Cross-language
+:--|:--|:--|:--|
+Sadness| 0.070 |0.000 |0.230
+Anger| 0.200 |0.200 |0.200
+|Pleasure| 0.350 |0.035 |0.357
+Joy| 0.754| 0.912 |0.403
+MICRO| 0.533 |0.524 |0.359
+
+## Getting Started
+You can view the notebook here on github. 
+### Run the notebook
+#### Prerequisites
+- Python 3
+- Tensorflow
+- Jupyter
+
+#### starting the notebook
+Simply open a new terminal in the directory and type:
+```bash
+> jupyter notebook
+```
+#### setup model
+make sure you run all codeblocks from top to bottom to setup the network
+
+### Running the tests
+To test the model, you need only to run the last codeblock.
+This will evaluate the model and print the accuracy for each testset.
+
+
+## Built With
+
+* [Tensorflow](https://www.tensorflow.org/) - The framework to create the model
+* [Project Jupyter](https://jupyter.org/) - Nice and easy python notebooks
+
+
+## Contributors
+
+* **A. Kaplan** - [nymvno](https://github.com/nymvno)
+* **C. Tasci** - [StraysWonderland](https://github.com/StraysWonderland)
