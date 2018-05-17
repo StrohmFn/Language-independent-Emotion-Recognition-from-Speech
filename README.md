@@ -13,7 +13,7 @@ The used config files and the resulting features can be found in the 'openSMILE'
 The Python script in the 'Preprocessing' folder transfers this extracted information into the right format to feed our neural network.
 
 ## Getting Started
-You can view the notebook [here] (https://github.com/StrohmFn/Language-independent-Emotion-Recognition-from-Speech/blob/master/CNN%20SpeechRecognition.ipynb) on github. 
+You can view the notebook [here](https://github.com/StrohmFn/Language-independent-Emotion-Recognition-from-Speech/blob/master/CNN%20SpeechRecognition.ipynb) on github. 
 ### Run the notebook
 #### Prerequisites
 - Python 3
